@@ -8,3 +8,13 @@ export interface Roll {
   dice: Dice[];
   modifier: number;
 }
+
+export interface StorageItem {
+  key: string;
+  friendlyName: string;
+  value: string;
+}
+
+export interface Store {
+  dice: StorageItem[];
+}
