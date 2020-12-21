@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { roll } from "./utils/roll";
+import { calcRoll } from "./utils/roll";
 import RollInput from "./components/RollInput";
 import "./App.css";
 
@@ -17,7 +17,7 @@ function App() {
       <p>Sides: {`${sides}`}</p>
       <RollInput onChange={handleChange} />
       <p>{result ? `The current roll is ${result}` : "Click to roll!"}</p>
-      <button onClick={() => setResult(roll(sides))}>ROLL</button>
+      <button onClick={() => setResult(calcRoll(sides))}>ROLL</button>
     </div>
   );
 }
