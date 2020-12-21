@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { calcRoll } from "./utils/roll";
+import { calcRoll } from "./utils/dice";
 import RollInput from "./components/RollInput";
 import "./App.css";
 

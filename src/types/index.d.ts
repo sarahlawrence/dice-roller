@@ -3,7 +3,7 @@ export interface Dice {
   sides: number;
 }
 
-export interface DiceRoll {
+export interface Roll {
   dice: Dice[];
   modifier: number;
 }

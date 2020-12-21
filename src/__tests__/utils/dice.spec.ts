@@ -1,4 +1,4 @@
-import { calcRoll, rollDice } from "../../utils/roll";
+import { calcRoll, rollDice } from "../../utils/dice";
 
 describe("Rolling Dice", () => {
   beforeEach(() => {
