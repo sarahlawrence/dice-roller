@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RollInput from "./components/RollInput";
 import SaveRoll from "./components/SaveRoll";
+import Routes from "./routes";
 import parseRoll from "./utils/parse";
 import { roll } from "./utils/dice";
 import { addItem, getItems, deleteItem } from "./utils/storage";
@@ -43,19 +44,22 @@ function App() {
   };
 
   return (
+    // <div className="App">
+    //   <RollInput onChange={handleChange} />
+    //   <p>{value ? `The current roll is ${value}` : "Click to roll!"}</p>
+    //   <button onClick={handleRoll}>ROLL</button>
+    //   <SaveRoll onSubmit={handleSubmit} />
+    //   {savedRolls?.map((r) => (
+    //     <div key={r.key}>
+    //       <p>Name: {r.friendlyName}</p>
+    //       <p>Roll: {r.value}</p>
+    //       <button onClick={() => handleDelete(r)}>Delete</button>
+    //       <button onClick={() => handleRollSaved(r.value)}>Roll Me!</button>
+    //     </div>
+    //   ))}
+    // </div>
     <div className="App">
-      <RollInput onChange={handleChange} />
-      <p>{value ? `The current roll is ${value}` : "Click to roll!"}</p>
-      <button onClick={handleRoll}>ROLL</button>
-      <SaveRoll onSubmit={handleSubmit} />
-      {savedRolls?.map((r) => (
-        <div key={r.key}>
-          <p>Name: {r.friendlyName}</p>
-          <p>Roll: {r.value}</p>
-          <button onClick={() => handleDelete(r)}>Delete</button>
-          <button onClick={() => handleRollSaved(r.value)}>Roll Me!</button>
-        </div>
-      ))}
+      <Routes />
     </div>
   );
 }
