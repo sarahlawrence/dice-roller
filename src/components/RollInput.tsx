@@ -8,8 +8,7 @@ export default function (props: Props) {
   return (
     <div className="roll-input-container">
       <TextField
-        defaultValue={6}
-        type="number"
+        placeholder="1d6"
         variant="outlined"
         onChange={props.onChange}
       />
