@@ -8,7 +8,7 @@ export default function (props: Props) {
   return (
     <div className="roll-input-container">
       <TextField
-        placeholder="1d6"
+        placeholder="e.g. 1d6"
         variant="outlined"
         onChange={props.onChange}
       />

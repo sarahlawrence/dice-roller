@@ -2,10 +2,12 @@ import { useState } from "react";
 import RollInput from "./components/RollInput";
 import parseRoll from "./utils/parse";
 import { roll } from "./utils/dice";
+import { Roll } from "./types";
 
 function App() {
-  const [input, setInput] = useState(null);
-  const [value, setValue] = useState(0);
+  const [input, setInput] = useState<string | null>(null);
+  const [value, setValue] = useState<number>(0);
+  const [currentRoll, setCurrentRoll] = useState<Roll | null>(null);
 
   const handleChange = (evt: any) => {
     const input = evt.target.value;
@@ -15,7 +17,9 @@ function App() {
   const handleRoll = () => {
     const x = input;
     if (x) {
-      const total = roll(parseRoll(x));
+      const parsed = parseRoll(x);
+      setCurrentRoll(parsed);
+      const total = roll(parsed);
       setValue(total);
     }
   };

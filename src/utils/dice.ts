@@ -8,7 +8,6 @@ export function rollDice(sides: number, count: number): number[] {
   const results = [];
   for (let i = 0; i < count; i++) {
     const output = calcRoll(sides);
-    console.log("ROLL:", output);
     results.push(output);
   }
   return results;
