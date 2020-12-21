@@ -1,12 +1,4 @@
-export interface Dice {
-  count: number;
-  sides: number;
-}
-
-export interface DiceRoll {
-  dice: Dice[];
-  modifier: number;
-}
+import { Dice, DiceRoll } from "../types";
 
 export function parseDice(input: string): Dice[] {
   const matches = input.toLowerCase().match(/\d+d\d+/g); // looking for xdy
