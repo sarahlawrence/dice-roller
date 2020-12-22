@@ -7,7 +7,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
 
 export default function Navigation() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   return (
     <BottomNavigation

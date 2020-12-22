@@ -4,6 +4,7 @@ export function calcRoll(sides: number): number {
   return Math.ceil(Math.random() * sides);
 }
 
+// TODO: change this to a map to check what each roll was
 export function rollDice(sides: number, count: number): number[] {
   const results = [];
   for (let i = 0; i < count; i++) {
@@ -25,4 +26,15 @@ export function roll({ dice, modifier }: Roll): number {
     }
   });
   return total + modifier;
+}
+
+export function printDice(currentRoll: Roll): string {
+  const dice = currentRoll.dice.map((d) => `${d.sign} ${d.count}d${d.sides}`);
+  const friendlyMod =
+    currentRoll.modifier < 0
+      ? `${currentRoll.modifier}`
+      : currentRoll.modifier === 0
+      ? ""
+      : `+${currentRoll.modifier}`;
+  return `${dice.join(" ")} ${friendlyMod}`;
 }
