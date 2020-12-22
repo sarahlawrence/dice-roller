@@ -1,10 +1,9 @@
-import { Roll } from "../types";
+import { ExtendedTotal, Roll, DiceSetWithValues } from "../types";
 
 export function calcRoll(sides: number): number {
   return Math.ceil(Math.random() * sides);
 }
 
-// TODO: change this to a map to check what each roll was
 export function rollDice(sides: number, count: number): number[] {
   const results = [];
   for (let i = 0; i < count; i++) {
@@ -14,18 +13,22 @@ export function rollDice(sides: number, count: number): number[] {
   return results;
 }
 
-export function roll({ dice, modifier }: Roll): number {
-  let total = 0;
+export function roll({ dice, modifier }: Roll): ExtendedTotal {
+  let runningTotal = 0;
+  let diceSet: DiceSetWithValues[] = [];
   dice.forEach((current) => {
     const r = rollDice(current.sides, current.count);
+    // add to running dice set
+    diceSet.push({ ...current, values: r });
+
     const roll = r.reduce((a, c) => a + c);
     if (current.sign && current.sign === "-") {
-      total -= roll;
+      runningTotal -= roll;
     } else {
-      total += roll;
+      runningTotal += roll;
     }
   });
-  return total + modifier;
+  return { total: runningTotal + modifier, dice: diceSet };
 }
 
 export function printDice(currentRoll: Roll): string {
