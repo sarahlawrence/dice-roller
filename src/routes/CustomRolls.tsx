@@ -12,7 +12,7 @@ import { addItem, getItems, deleteItem } from "../utils/storage";
 import CustomRollItem from "../components/CustomRoll";
 import SaveRoll from "../components/SaveRoll";
 
-export default function () {
+export default function CustomRollsRoute() {
   const [savedRolls, setSavedRolls] = useState(getItems());
   const handleDelete = (item: StorageItem) => {
     deleteItem(item);

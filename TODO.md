@@ -8,3 +8,4 @@
 - ✅edit / delete favourite rolls
 - ✅roll combos via syntax
 - roll combos via GUI
+- template rolls? eg. 1d6 + STR autofills
