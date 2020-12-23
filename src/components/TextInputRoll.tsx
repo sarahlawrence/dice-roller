@@ -1,5 +1,12 @@
-import { TextField, Button, FormGroup, makeStyles } from "@material-ui/core";
+import {
+  TextField,
+  Button,
+  FormGroup,
+  makeStyles,
+  IconButton,
+} from "@material-ui/core";
 import DiceIcon from "@material-ui/icons/Casino";
+import StarIcon from "@material-ui/icons/StarBorder";
 import { useState } from "react";
 
 interface Props {
