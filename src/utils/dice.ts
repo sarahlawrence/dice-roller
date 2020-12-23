@@ -13,7 +13,7 @@ export function rollDice(sides: number, count: number): number[] {
   return results;
 }
 
-export function roll({ dice, modifier }: Roll): ExtendedTotal {
+export default function roll({ dice, modifier }: Roll): ExtendedTotal {
   let runningTotal = 0;
   let diceSet: DiceSetWithValues[] = [];
   dice.forEach((current) => {
@@ -31,6 +31,7 @@ export function roll({ dice, modifier }: Roll): ExtendedTotal {
   return { total: runningTotal + modifier, dice: diceSet };
 }
 
+// Prints a calculated representation of the roll
 export function printDice(currentRoll: Roll): string {
   const dice = currentRoll.dice.map((d) => `${d.sign} ${d.count}d${d.sides}`);
   const friendlyMod =
@@ -40,4 +41,11 @@ export function printDice(currentRoll: Roll): string {
       ? ""
       : `+${currentRoll.modifier}`;
   return `${dice.join(" ")} ${friendlyMod}`;
+}
+
+// Prints values of each die rolled in the roll
+export function printExtendedRoll(roll: ExtendedTotal): string[] {
+  return roll.dice.map(
+    (d) => `${d.count}d${d.sides} = [${d.values.join(", ")}]`
+  );
 }

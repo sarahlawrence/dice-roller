@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TextInputRoll from "../components/TextInputRoll";
 import parseRoll from "../utils/parse";
-import { printDice, roll } from "../utils/dice";
+import roll, { printDice, printExtendedRoll } from "../utils/dice";
 import { ExtendedTotal, Roll } from "types";
 
 export default function HomeRoute() {
@@ -19,11 +19,20 @@ export default function HomeRoute() {
     setCurrentExtended(extendedTotal);
     setTotal(extendedTotal.total);
   };
+
   return (
     <div className="custom-rolls">
       <TextInputRoll onSubmit={handleRoll} />
       {currentRoll && <p>Current roll is: {printDice(currentRoll)}</p>}
       {total > -1 && <p>Total: {total}</p>}
+      <p>Roll Breakdown:</p>
+      {currentExtended && (
+        <ul>
+          {printExtendedRoll(currentExtended).map((x, index) => (
+            <li key={`diceset-${index}`}>{x}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
