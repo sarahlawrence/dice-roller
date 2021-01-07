@@ -1,6 +1,6 @@
-import { Dice, Roll } from "../types";
+import { DiceSet, Roll } from "../types";
 
-export function parseDice(input: string): Dice[] {
+export function parseDice(input: string): DiceSet[] {
   const matches = input.toLowerCase().match(/[\+\-]*\s*\d+d\d+/g); // looking for xdy
 
   if (matches) {

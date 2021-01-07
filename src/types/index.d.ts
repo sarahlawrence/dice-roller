@@ -1,12 +1,21 @@
-export interface Dice {
+export interface DiceSet {
   count: number;
   sides: number;
   sign: "+" | "-";
 }
 
+export interface DiceSetWithValues extends DiceSet {
+  values: number[];
+}
+
 export interface Roll {
-  dice: Dice[];
+  dice: DiceSet[];
   modifier: number;
+}
+
+export interface ExtendedTotal {
+  total: number;
+  dice: DiceSetWithValues[];
 }
 
 export interface StorageItem {
